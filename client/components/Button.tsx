@@ -1,4 +1,4 @@
 import React from "react";
 export default function Button() {
-  return <button>Button</button>;
+  return <button onClick={() => console.log("clicked!")}>Button</button>;
 }

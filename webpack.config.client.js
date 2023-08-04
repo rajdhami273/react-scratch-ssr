@@ -1,5 +1,6 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
   entry: "./client/index.tsx",
@@ -9,6 +10,7 @@ module.exports = {
     publicPath: "/",
   },
   devtool: "inline-source-map",
+  target: 'web',
   module: {
     rules: [
       {
@@ -56,6 +58,9 @@ module.exports = {
     static: "./dist",
     hot: true,
   },
-  plugins: [new HtmlWebpackPlugin({ template: "./public/index.html" })],
+  plugins: [
+    // new HtmlWebpackPlugin({ template: "./public/index.html" }),
+    new CleanWebpackPlugin(),
+  ],
   mode: "development",
 };
